@@ -4,6 +4,7 @@ const router = require("express").Router();
 const sendGridMailer = require("@sendgrid/mail");
 const crypto = require("crypto");
 const _ = require("lodash");
+const baseUrl = process.env.BASE_URL
 
 sendGridMailer.setApiKey(process.env.SEND_GRID_API_SECRET);
 
@@ -67,7 +68,7 @@ router.get("/change-status/:statusToken", async (req, res) => {
         ).getTime() >
       43200000
     ) {
-      return res.redirect("http://127.0.0.1:3000/#/confirmation-page/expired");
+      return res.redirect(`${baseUrl}/confirmation-page/expired`);
     }
 
     const startTime = candidateBooking.bookings.get(date)[0].startTime;
@@ -203,7 +204,7 @@ router.get("/change-status/:statusToken", async (req, res) => {
     });
 
     res.redirect(
-      `http://127.0.0.1:3000/#/confirmation-page/${req.query.eventStatus}`
+      `${baseUrl}/confirmation-page/${req.query.eventStatus}`
     );
   } catch (err) {
     res.status(500).send(err);

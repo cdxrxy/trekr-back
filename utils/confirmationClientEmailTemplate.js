@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const imgURL = process.env.IMG_URL
+const apiUrl = process.env.API_URL
 
 const confirmationClientEmailTemplate = (bookingId, date, startTime, clientFullname, estimate, statusToken) => {
     const endTime = estimate.endTime
@@ -271,7 +272,7 @@ const confirmationClientEmailTemplate = (bookingId, date, startTime, clientFulln
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td align="center" bgcolor="#2e58ff" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#2e58ff;" valign="middle">
-                                                                                            <a href="http://localhost:8800/verification/change-status/${statusToken}
+                                                                                            <a href="${apiUrl}/verification/change-status/${statusToken}
             ?eventStatus=confirmed&date=${date}" style="word-break: normal; display: inline-block; background: #2e58ff; color: white; font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 20px; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px;" target="_blank"> Confirm </a>
                                                                                         </td>
                                                                                     </tr>
@@ -291,7 +292,7 @@ const confirmationClientEmailTemplate = (bookingId, date, startTime, clientFulln
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td align="center" bgcolor="#72787E" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#72787E;" valign="middle">
-                                                                                            <a href="http://localhost:8800/verification/change-status/${statusToken}
+                                                                                            <a href="${apiUrl}/verification/change-status/${statusToken}
             ?eventStatus=rejected&date=${date}" style="word-break: normal; display: inline-block; background: #72787E; color: white; font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 20px; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px;" target="_blank"> Cancel </a>
                                                                                         </td>
                                                                                     </tr>

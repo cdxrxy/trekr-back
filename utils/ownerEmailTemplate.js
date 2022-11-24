@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const imgURL = process.env.IMG_URL
+const baseUrl = process.env.BASE_URL
 
 const ownerEmailTemplateUtil = (bookingId, date, ownerFullname, clientFullname, phone, email) => {
     return `<!DOCTYPE html>
@@ -244,7 +245,7 @@ const ownerEmailTemplateUtil = (bookingId, date, ownerFullname, clientFullname, 
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td align="center" bgcolor="#2e58ff" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#2e58ff;" valign="middle">
-                                                                                            <a href="http://127.0.0.1:3000/#/calendar?
+                                                                                            <a href="${baseUrl}/calendar?
               id=${bookingId}&date=${date}" style="word-break: normal; display: inline-block; background: #2e58ff; color: white; font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 20px; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px;" target="_blank"> Estimate </a>
                                                                                         </td>
                                                                                     </tr>
