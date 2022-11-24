@@ -62,4 +62,9 @@ app.listen(8800, () => {
   console.log("Backend server is running at port 8800!");
 });
 
+// Health check
+app.get('/', (req, res) => {
+  res.sendStatus(200)
+})
+
 schedule.scheduleJob("*/30 */20 * * *", dailyNotifications);
