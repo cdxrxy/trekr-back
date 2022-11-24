@@ -64,7 +64,7 @@ app.listen(8800, () => {
 
 // Health check
 app.get('/', (req, res) => {
-  res.sendStatus(200)
+  res.sendStatus("Health Check")
 })
 
 schedule.scheduleJob("*/30 */20 * * *", dailyNotifications);
