@@ -28,9 +28,7 @@ var upload = multer();
 
 /* MongoDB Connection */
 mongoose
-  .connect(
-    "mongodb+srv://admin:adadmin@automateddispatch.hwpbl.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.ATLAS_URI)
   .then(() => console.log("Database connected!"))
   .catch((err) => console.log(err));
 
@@ -58,13 +56,13 @@ app.use("/verification", verificationRoute);
 app.use("/notifications", notificationsRoute);
 app.use("/estimate", estimateRoute);
 
-app.listen(8800, () => {
+app.listen(process.env.PORT, () => {
   console.log("Backend server is running at port 8800!");
 });
 
 // Health check
-app.get('/healthz', (req, res) => {
-  res.sendStatus(200)
-})
+app.get("/healthz", (req, res) => {
+  res.sendStatus(200);
+});
 
 schedule.scheduleJob("*/30 */20 * * *", dailyNotifications);
