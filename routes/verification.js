@@ -68,7 +68,7 @@ router.get("/change-status/:statusToken", async (req, res) => {
         ).getTime() >
       43200000
     ) {
-      return res.redirect(`${baseUrl}/confirmation-page/expired`);
+      return res.redirect(`${baseUrl}/#/confirmation-page/expired`);
     }
 
     const startTime = candidateBooking.bookings.get(date)[0].startTime;
@@ -204,7 +204,7 @@ router.get("/change-status/:statusToken", async (req, res) => {
     });
 
     res.redirect(
-      `${baseUrl}/confirmation-page/${req.query.eventStatus}`
+      `${baseUrl}/#/confirmation-page/${req.query.eventStatus}`
     );
   } catch (err) {
     res.status(500).send(err);
