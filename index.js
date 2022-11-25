@@ -63,8 +63,8 @@ app.listen(8800, () => {
 });
 
 // Health check
-app.get('/', (req, res) => {
-  res.send("Health Check")
+app.get('/healthz', (req, res) => {
+  res.sendStatus(200)
 })
 
 schedule.scheduleJob("*/30 */20 * * *", dailyNotifications);
