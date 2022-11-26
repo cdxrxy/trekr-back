@@ -56,8 +56,10 @@ app.use("/verification", verificationRoute);
 app.use("/notifications", notificationsRoute);
 app.use("/estimate", estimateRoute);
 
-app.listen(process.env.PORT, () => {
-  console.log("Backend server is running at port 8800!");
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
+  console.log(`Backend server is running at port ${PORT}!`);
 });
 
 // Health check
