@@ -71,4 +71,4 @@ const rule = schedule.RecurrenceRule()
 rule.hour = 20
 rule.minute = 30
 
-schedule.scheduleJob(rule, console.log("asda"));
+schedule.scheduleJob(rule, dailyNotifications);
