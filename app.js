@@ -68,7 +68,7 @@ app.get("/", (req, res) => {
 });
 
 const rule = schedule.RecurrenceRule()
-
-rule.second = 1
+rule.hour = 20
+rule.minute = 30
 
 schedule.scheduleJob(rule, console.log("asda"));
