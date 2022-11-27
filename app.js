@@ -67,8 +67,4 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
-const rule = schedule.RecurrenceRule()
-rule.hour = 20
-rule.minute = 30
-
-schedule.scheduleJob(rule, dailyNotifications);
+schedule.scheduleJob("30 20 * * *", dailyNotifications);
