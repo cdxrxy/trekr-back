@@ -63,7 +63,7 @@ app.listen(PORT, () => {
 });
 
 // Health check
-app.get("/aws", (req, res) => {
+app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
