@@ -67,4 +67,8 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
-schedule.scheduleJob("*/30 */20 * * *", dailyNotifications);
+const rule = schedule.RecurrenceRule()
+
+rule.second = 1
+
+schedule.scheduleJob(rule, console.log("asda"));
