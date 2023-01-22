@@ -68,3 +68,5 @@ app.get("/", (req, res) => {
 });
 
 schedule.scheduleJob("30 20 * * *", dailyNotifications);
+
+schedule.scheduleJob("14 * * * *", console.log("Server is up"));
